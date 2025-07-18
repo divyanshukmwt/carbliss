@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: antonio;
+  src: url(./assets/Fonts/Antonio-Regular.ttf);
+}
+
+@font-face {
+  font-family: proxima;
+  src: url(./assets/Fonts/ProximaSansRegular.ttf);
+}
