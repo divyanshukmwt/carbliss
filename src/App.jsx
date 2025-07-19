@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import Flavours from "./components/Flavours";
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const App = () => {
     <div>
       <Nav />
       <Hero />
+      <Flavours />
     </div>
   );
 };

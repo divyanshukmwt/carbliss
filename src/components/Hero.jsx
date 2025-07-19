@@ -17,6 +17,8 @@ const Hero = () => {
   const sectionRef = useRef();
   const wrapperRef = useRef();
   const aboutTextRef = useRef();
+  const aboutSectionRef = useRef();
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -39,18 +41,21 @@ const Hero = () => {
         delay: 0.4,
       });
 
-      // Spacing Animation
-      gsap.fromTo(
-        titleRef.current,
-        { gap: "2rem" },
-        { gap: "12rem", duration: 0.8, ease: "power2.out", delay: 1.2 }
-      );
+      if (window.innerWidth >= 769) {
+        // Spacing Animation (Only for medium and above screens)
+        gsap.fromTo(
+          titleRef.current,
+          { gap: "2rem" },
+          { gap: "12rem", duration: 0.8, ease: "power2.out", delay: 1.2 }
+        );
 
-      gsap.fromTo(
-        subheadingRef.current,
-        { gap: "3rem" },
-        { gap: "10rem", duration: 0.8, ease: "power2.out", delay: 1.4 }
-      );
+        gsap.fromTo(
+          subheadingRef.current,
+          { gap: "3rem" },
+          { gap: "10rem", duration: 0.8, ease: "power2.out", delay: 1.4 }
+        );
+      }
+
 
       // Pineapple Bounce + Button
       gsap.fromTo(
@@ -106,13 +111,16 @@ const Hero = () => {
             duration: 1,
             ease: "power4.out",
             scrollTrigger: {
-              trigger: ref.current,
+              trigger: aboutSectionRef.current,
               start: "top 80%",
+              end: "bottom 20%",
               scrub: true,
             },
           }
         );
       };
+
+
 
       animateCan(cranberryRef, -200);
       animateCan(peachRef, 200);
@@ -149,16 +157,16 @@ const Hero = () => {
     ));
 
   return (
-    <div ref={wrapperRef} className="w-full transition-colors overflow-x-hidden  duration-1000">
+    <div ref={wrapperRef} className="w-full h-full transition-colors overflow-x-hidden duration-1000">
       {/* Hero Section */}
       <div ref={sectionRef} className="w-full h-screen">
         <div className="w-full h-full flex items-center justify-center relative">
-          <div className="text-center relative -translate-y-[5vh]">
+          <div className=" w-full h-full text-center relative md:items-center md:justify-center md:pt-0 pt-[10rem] items-center justify-start flex flex-col">
             {/* Pineapple Image */}
             <div
               ref={pineappleRef}
-              className="absolute top-[-20%] left-1/2 -translate-x-1/2 z-10 rotate-[25deg]">
-              <img src={pineappleImg} alt="Pineapple Drink" className="w-[150px]" />
+              className="absolute md:top-[15%] md:left-[50%] top-[50%] left-[38%] -translate-x-1/2 z-10 rotate-[23deg]">
+              <img src={pineappleImg} alt="Pineapple Drink" className="md:w-[150px] w-[120px]" />
             </div>
 
             {/* Title */}
@@ -194,7 +202,7 @@ const Hero = () => {
             {/* Button */}
             <div
               ref={buttonRef}
-              className="absolute right-50 font-[antonio] uppercase mt-8 px-6 py-3 bg-[#523122] text-white text-lg md:text-xl rounded-full shadow-lg opacity-0"
+              className=" font-[antonio] uppercase mt-8 px-6 py-3 bg-[#523122] text-white text-lg md:text-xl rounded-full shadow-lg opacity-0"
             >
               Ready to Sip?
             </div>
@@ -203,30 +211,30 @@ const Hero = () => {
       </div>
 
       {/* About Section */}
-      <div className="w-full h-screen flex items-center justify-center px-10 text-center">
-        <div className="w-[50%]">
-          <h2 ref={aboutTextRef}
-            className="text-4xl md:text-[2.3rem] font-[antonio] font-light text-white mb-4 leading-snug">
-            <span className="font-black text-[2.4rem]">Zero</span> carbs.
-            <span className="font-black text-[2.4rem]"> Zero</span> sugar.
-            <span className="font-black text-[2.4rem]"> Zero</span> guilt.<br />
+      <div ref={aboutSectionRef}
+        className="w-full h-screen md:h-screen flex flex-col md:flex-row items-center justify-center text-center">
+        <div className="w-full md:w-[50%] h-[50%] flex justify-center items-center md:items-center md:pt-0 text-center">
+          <h2 ref={aboutTextRef} className="text-2xl md:text-[2.3rem] font-[antonio] font-light text-white leading-snug">
+            <span className="font-black text-[1.7rem] md:text-[2.4rem]">Zero</span> carbs.
+            <span className="font-black text-[1.7rem] md:text-[2.4rem]"> Zero</span> sugar.
+            <span className="font-black text-[1.7rem] md:text-[2.4rem]"> Zero</span> guilt.<br />
             100 crisp calories of unapologetic flavors.<br />
-            Flavorful. Flawliss. That’s <span className="font-black text-[2.5rem] uppercase">carbliss</span>
+            Flavorful. Flawliss. That’s <span className="font-black text-[1.7rem] md:text-[2.4rem] uppercase">carbliss</span>
           </h2>
         </div>
-        <div className=" w-[50%] h-full flex relative">
+
+        <div className="w-full md:w-[50%] h-[50%] md:h-full flex relative">
           {/* Cranberry Can */}
-          <div ref={cranberryRef} className="absolute top-[18%] left-[26%] rotate-10">
+          <div ref={cranberryRef} className="absolute md:top-[18%] top-[1%] md:left-[26%] left-[24%] rotate-10">
             <div className="absolute -z-10 top-1/2 left-1/2 w-[180px] h-[180px] bg-[#00000080] rounded-full blur-[60px] -translate-x-1/2 -translate-y-1/2"></div>
-            <img src={cranberryImg} alt="Cranberry Drink" className="w-[150px] relative z-10" />
+            <img src={cranberryImg} alt="Cranberry Drink" className="md:w-[155px] w-[110px] relative z-10" />
           </div>
 
           {/* Peach Can */}
-          <div ref={peachRef} className="absolute top-[22%] right-[20%] rotate-[-10deg]">
+          <div ref={peachRef} className="absolute md:top-[22%] top-[4%] md:right-[20%] right-[20%] rotate-[-10deg]">
             <div className="absolute -z-10 top-1/2 left-1/2 w-[220px] h-[220px] bg-[#00000080] rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
-            <img src={peachImg} alt="Peach Drink" className="w-[155px] relative z-10" />
+            <img src={peachImg} alt="Peach Drink" className="md:w-[155px] w-[112px] relative z-10" />
           </div>
-
         </div>
       </div>
     </div>
