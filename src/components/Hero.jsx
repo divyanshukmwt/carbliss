@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import pineappleImg from "../assets/Images/Pineapple.png";
+import cranberryImg from "../assets/Images/Cranberry.png";
+import peachImg from "../assets/Images/Peach.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,9 +11,12 @@ const Hero = () => {
   const titleRef = useRef();
   const subheadingRef = useRef();
   const pineappleRef = useRef();
+  const cranberryRef = useRef();
+  const peachRef = useRef();
   const buttonRef = useRef();
   const sectionRef = useRef();
   const wrapperRef = useRef();
+  const aboutTextRef = useRef();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -78,18 +83,59 @@ const Hero = () => {
       // Background Color Scroll Transition
       gsap.fromTo(
         wrapperRef.current,
-        { backgroundColor: "#ffffff" },
+        { backgroundColor: "#d4c982" },
         {
-          backgroundColor: "#fffbe6",
+          backgroundColor: "#b6484f",
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
+            start: "center top",
+            end: "center top",
             scrub: true,
           },
         }
       );
+      const animateCan = (ref, xVal) => {
+        gsap.fromTo(
+          ref.current,
+          { x: xVal, y: 50, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: ref.current,
+              start: "top 80%",
+              scrub: true,
+            },
+          }
+        );
+      };
+
+      animateCan(cranberryRef, -200);
+      animateCan(peachRef, 200);
+
+
+      gsap.fromTo(
+        aboutTextRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: aboutTextRef.current,
+            start: "top 80%", // Adjust as needed
+            toggleActions: "play none none none",
+            scrub: true,
+          },
+        }
+      );
+
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -103,7 +149,7 @@ const Hero = () => {
     ));
 
   return (
-    <div ref={wrapperRef} className="w-full transition-colors duration-1000">
+    <div ref={wrapperRef} className="w-full transition-colors overflow-x-hidden  duration-1000">
       {/* Hero Section */}
       <div ref={sectionRef} className="w-full h-screen">
         <div className="w-full h-full flex items-center justify-center relative">
@@ -111,8 +157,7 @@ const Hero = () => {
             {/* Pineapple Image */}
             <div
               ref={pineappleRef}
-              className="absolute top-[-20%] left-1/2 -translate-x-1/2 z-10 rotate-[25deg]"
-            >
+              className="absolute top-[-20%] left-1/2 -translate-x-1/2 z-10 rotate-[25deg]">
               <img src={pineappleImg} alt="Pineapple Drink" className="w-[150px]" />
             </div>
 
@@ -159,13 +204,29 @@ const Hero = () => {
 
       {/* About Section */}
       <div className="w-full h-screen flex items-center justify-center px-10 text-center">
-        <div>
-          <h2 className="text-4xl md:text-6xl font-[antonio] font-bold text-[#523122] mb-4">
-            About Carbliss
+        <div className="w-[50%]">
+          <h2 ref={aboutTextRef}
+            className="text-4xl md:text-[2.3rem] font-[antonio] font-light text-white mb-4 leading-snug">
+            <span className="font-black text-[2.4rem]">Zero</span> carbs.
+            <span className="font-black text-[2.4rem]"> Zero</span> sugar.
+            <span className="font-black text-[2.4rem]"> Zero</span> guilt.<br />
+            100 crisp calories of unapologetic flavors.<br />
+            Flavorful. Flawliss. That’s <span className="font-black text-[2.5rem] uppercase">carbliss</span>
           </h2>
-          <p className="text-lg md:text-2xl text-[#523122] max-w-3xl mx-auto">
-            Carbliss is a handcrafted, ready-to-drink cocktail that’s bold in flavor yet refreshingly light. No sugar. No carbs. Just premium taste.
-          </p>
+        </div>
+        <div className=" w-[50%] h-full flex relative">
+          {/* Cranberry Can */}
+          <div ref={cranberryRef} className="absolute top-[18%] left-[26%] rotate-10">
+            <div className="absolute -z-10 top-1/2 left-1/2 w-[180px] h-[180px] bg-[#00000080] rounded-full blur-[60px] -translate-x-1/2 -translate-y-1/2"></div>
+            <img src={cranberryImg} alt="Cranberry Drink" className="w-[150px] relative z-10" />
+          </div>
+
+          {/* Peach Can */}
+          <div ref={peachRef} className="absolute top-[22%] right-[20%] rotate-[-10deg]">
+            <div className="absolute -z-10 top-1/2 left-1/2 w-[220px] h-[220px] bg-[#00000080] rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
+            <img src={peachImg} alt="Peach Drink" className="w-[155px] relative z-10" />
+          </div>
+
         </div>
       </div>
     </div>
@@ -173,4 +234,3 @@ const Hero = () => {
 };
 
 export default Hero;
-  
