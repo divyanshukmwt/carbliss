@@ -2,11 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import BlackCherry from "../assets/Images/BlackCherry.png";
-import BlackRaspberry from "../assets/Images/BlackRaspberry.png";
-import Lemon from "../assets/Images/Lemon.png";
-import Mango from "../assets/Images/Mango.png";
-import Watermelon from "../assets/Images/Watermelon.png";
+import BlackCherry from "../assets/Images/BlackCherry_half.png";
+import BlackRaspberry from "../assets/Images/BlackRaspberry_half.png";
+import Lemon from "../assets/Images/Lemon_half.png";
+import Mango from "../assets/Images/Mango_half.png";
+import Watermelon from "../assets/Images/Watermelon_half.png";
+import WatermelonPieces from "../assets/Images/Watermelonpieces.png"; // Used as background
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,11 +17,41 @@ const Flavors = () => {
   const panelsRef = useRef([]);
 
   const flavors = [
-    { id: 1, name: "Black Cherry", image: BlackCherry, alt: "Black Cherry flavor with rich dark cherry visuals" },
-    { id: 2, name: "Black Raspberry", image: BlackRaspberry, alt: "Juicy Black Raspberry with a tangy burst" },
-    { id: 3, name: "Lemon", image: Lemon, alt: "Fresh Lemon with a citrus zing" },
-    { id: 4, name: "Mango", image: Mango, alt: "Tropical Mango with golden sweetness" },
-    { id: 5, name: "Watermelon", image: Watermelon, alt: "Refreshing Watermelon slice flavor" }
+    {
+      id: 1,
+      name: "Black Cherry",
+      image: BlackCherry,
+      alt: "Black Cherry flavor with rich dark cherry visuals",
+      bgColor: "bg-[#4B1C2F]",
+    },
+    {
+      id: 2,
+      name: "Black Raspberry",
+      image: BlackRaspberry,
+      alt: "Juicy Black Raspberry with a tangy burst",
+      bgColor: "bg-[#32174D]",
+    },
+    {
+      id: 3,
+      name: "Lemon",
+      image: Lemon,
+      alt: "Fresh Lemon with a citrus zing",
+      bgColor: "bg-[#FFE135]",
+    },
+    {
+      id: 4,
+      name: "Mango",
+      image: Mango,
+      alt: "Tropical Mango with golden sweetness",
+      bgColor: "bg-[#FFB347]",
+    },
+    {
+      id: 5,
+      name: "Watermelon",
+      image: Watermelon,
+      alt: "Refreshing Watermelon slice flavor",
+      bgColor: "bg-[#F2474A]",
+    },
   ];
 
   useEffect(() => {
@@ -49,10 +80,36 @@ const Flavors = () => {
     panelsRef.current[index] = el;
   };
 
+  const handleMouseMove = (e, index) => {
+    const panel = panelsRef.current[index];
+    const { left, top, width, height } = panel.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+
+    const xPercent = (x / width) * 100;
+    const yPercent = (y / height) * 100;
+
+    const img = panel.querySelector('.flavor-image');
+    const bgImg = panel.querySelector('.background-image');
+
+    // ✅ Smaller translate values = smoother, less jitter
+    const imgX = -(xPercent / 20);     // reduced from /10
+    const bgX = xPercent / 20;         // reduced from /20
+    const bgY = yPercent / 20;         // reduced from /20
+
+    // ✅ Apply with a slight CSS transition for smoothness
+    img.style.transition = 'transform 0.2s ease-out';
+    bgImg.style.transition = 'transform 0.2s ease-out';
+
+    img.style.transform = `translateX(${imgX}%)`;
+    bgImg.style.transform = `translate(${bgX}%, ${bgY}%)`;
+  };
+
+
   return (
     <div className="overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Desktop Horizontal Scroll */}
-      <div ref={containerRef} className="relative h-[100vh] w-screen hidden md:block">
+      <div ref={containerRef} className="relative h-[100vh] w-screen hidden lg:block">
         <div ref={horizontalRef} className="absolute h-full flex items-center pl-30 gap-35">
           {/* Headline Section */}
           <div ref={el => addToPanelsRef(el, 0)} className="panel w-[45vw] font-[antonio] uppercase flex-shrink-0 pr-8">
@@ -68,18 +125,35 @@ const Flavors = () => {
             <div
               key={flavor.id}
               ref={el => addToPanelsRef(el, index + 1)}
-              className={`panel w-[55vw] h-[70vh] flex-shrink-0 relative rounded-3xl bg-white shadow-xl transition-transform duration-300  ${index % 2 === 0 ? '-rotate-2' : 'rotate-2'}`}
+              className={`panel w-[55vw] h-[70vh] flex-shrink-0 relative rounded-3xl shadow-xl ${flavor.bgColor} ${index % 2 === 0 ? '-rotate-2' : 'rotate-2'}`}
+              onMouseMove={(e) => handleMouseMove(e, index + 1)}
+              onMouseLeave={() => {
+                const img = panelsRef.current[index + 1].querySelector('.flavor-image');
+                const bgImg = panelsRef.current[index + 1].querySelector('.background-image');
+                img.style.transform = 'translate(0, 0)';
+                bgImg.style.transform = 'translate(0, 0)';
+              }}
             >
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
+              <div className=' relative flex items-center overflow-hidden justify-center w-full h-full'>
+                <div className="w-full h-full absolute bottom-3 left-[65%] -translate-x-1/2 z-0 background-image">
+                  <img
+                    src={WatermelonPieces}
+                    alt="Background"
+                    className="w-[30rem] h-[30rem] object-contain"
+                  />
+                </div>
+              </div>
+              {/* Can Image */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 flavor-image">
                 <img
                   src={flavor.image}
                   alt={flavor.alt}
-                  className="w-[160px] object-contain drop-shadow-xl "
+                  className="w-[260px] object-contain"
                 />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/50 to-transparent rounded-b-3xl">
-                <h3 className="text-white text-3xl font-[proxima] font-bold">{flavor.name}</h3>
-                <p className="text-white/80 mt-2">Flavor #{flavor.id}</p>
+
+              <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+                <h3 className="text-white text-3xl font-[proxima] font-extrabold">{flavor.name}</h3>
               </div>
             </div>
           ))}
@@ -87,7 +161,7 @@ const Flavors = () => {
           {/* Explore More Section */}
           <div
             ref={el => addToPanelsRef(el, flavors.length + 1)}
-            className="panel w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center"
+            className="panel w-[50vw] h-[50vh] flex-shrink-0 flex items-center justify-center"
           >
             <div className="text-center px-8">
               <div className="w-24 h-24 rounded-full bg-indigo-600 flex items-center justify-center mx-auto mb-8 animate-bounce">
@@ -106,20 +180,34 @@ const Flavors = () => {
       </div>
 
       {/* Mobile Version */}
-      <div className="md:hidden px-6 py-12">
+      <div className="lg:hidden px-8 py-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">
           we've got <span className="text-indigo-600">more flavours</span> than <span className="line-through text-gray-400">excuses</span>
         </h2>
 
-        <div className="space-y-8">
+        <div className="space-y-15 pt-10">
           {flavors.map(flavor => (
-            <div key={flavor.id} className="relative h-64 rounded-xl overflow-hidden border border-gray-200 shadow">
-              <img
-                src={flavor.image}
-                alt={flavor.alt}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+            <div key={flavor.id} className={`relative h-72 sm:h-80 md:h-[25rem] rounded-xl border shadow ${flavor.bgColor}`}>
+              {/* Background Image behind the can */}
+              <div className='relative flex items-center justify-center w-full h-full'>
+                <div className="w-full absolute bottom-0 left-[65%] -translate-x-1/2 z-0 background-image">
+                  <img
+                    src={WatermelonPieces}
+                    alt="Background"
+                    className="w-[30rem] object-contain"
+                  />
+                </div>
+              </div>
+              {/* Can Image */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 flavor-image">
+                <img
+                  src={flavor.image}
+                  alt={flavor.alt}
+                  className="w-[160px] sm:w-[180px] md:w-[200px] object-contain mx-auto"
+                />
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
                 <h3 className="text-white text-xl font-bold">{flavor.name}</h3>
               </div>
             </div>
@@ -145,3 +233,4 @@ const Flavors = () => {
 };
 
 export default Flavors;
+
