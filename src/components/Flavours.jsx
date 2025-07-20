@@ -26,7 +26,7 @@ const Flavors = () => {
     },
     {
       id: 2,
-      name: "Black Raspberry",
+      name: "Raspberry",
       image: BlackRaspberry,
       alt: "Juicy Black Raspberry with a tangy burst",
       bgColor: "bg-[#32174D]",
@@ -158,22 +158,32 @@ const Flavors = () => {
             </div>
           ))}
 
-          {/* Explore More Section */}
+          {/* Explore More Section */} 
           <div
             ref={el => addToPanelsRef(el, flavors.length + 1)}
             className="panel w-[50vw] h-[50vh] flex-shrink-0 flex items-center justify-center"
           >
-            <div className="text-center px-8">
-              <div className="w-24 h-24 rounded-full bg-indigo-600 flex items-center justify-center mx-auto mb-8 animate-bounce">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="text-center">
+              <div className="group relative w-[200px] h-[200px] rounded-full bg-[#523122] flex flex-col items-center justify-center transition-all duration-300 hover:scale-120 cursor-pointer mx-auto overflow-hidden">
+
+                {/* Arrow Icon */}
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2"
+                  className="transition-all duration-300 transform group-hover:-translate-y-6 group-hover:rotate-[50deg]"
+                >
                   <path d="M5 10l7-7m0 0l7 7m-7-7v18" />
                 </svg>
+
+                {/* Text fades and slides in on hover */}
+                <h3 className="absolute text-base md:text-xl font-[antonio] font-semibold text-white text-center opacity-0 translate-y-4 group-hover:translate-y-10 group-hover:opacity-100 transition-all duration-300">
+                  Explore More <br /> Flavors
+                </h3>
               </div>
-              <h3 className="text-4xl font-bold text-gray-800 mb-4">Explore More Flavors</h3>
-              <p className="text-gray-600 text-lg mb-6">Discover our full range of exotic and classic flavors</p>
-              <button className="px-8 py-3 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-colors shadow-lg">
-                View Collection
-              </button>
             </div>
           </div>
         </div>
@@ -181,20 +191,20 @@ const Flavors = () => {
 
       {/* Mobile Version */}
       <div className="lg:hidden px-8 py-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">
-          we've got <span className="text-indigo-600">more flavours</span> than <span className="line-through text-gray-400">excuses</span>
+        <h2 className="text-4xl text-center uppercase font-bold font-[antonio] text-gray-800 mb-6">
+          we've got <br/> <span className="text-[#523122] text-6xl">more flavours <br/> </span> than <br/> <span className=" text-black font-extrabold text-6xl">excuses</span>
         </h2>
 
         <div className="space-y-15 pt-10">
           {flavors.map(flavor => (
-            <div key={flavor.id} className={`relative h-72 sm:h-80 md:h-[25rem] rounded-xl border shadow ${flavor.bgColor}`}>
+            <div key={flavor.id} className={`relative h-72 sm:h-80 md:h-[25rem] rounded-xl shadow ${flavor.bgColor}`}>
               {/* Background Image behind the can */}
               <div className='relative flex items-center justify-center w-full h-full'>
-                <div className="w-full absolute bottom-0 left-[65%] -translate-x-1/2 z-0 background-image">
+                <div className="w-full absolute bottom-0 left-[55%] -translate-x-1/2 z-0 background-image">
                   <img
                     src={WatermelonPieces}
                     alt="Background"
-                    className="w-[30rem] object-contain"
+                    className="w-[20rem] object-contain"
                   />
                 </div>
               </div>
@@ -213,18 +223,15 @@ const Flavors = () => {
             </div>
           ))}
 
-          <div className="text-center py-8">
-            <div className="w-20 h-20 rounded-full bg-indigo-600 flex items-center justify-center mx-auto mb-6 animate-bounce">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <div className="text-center">
+            <div className="w-full h-20 rounded-xl text-white bg-[#523122] flex items-center justify-center gap-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className='rotate-[50deg]'>
                 <path d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">
+              <h3 className="text-2xl font-[antonio] text-white font-regular">
               Explore More Flavors
             </h3>
-            <button className="px-6 py-2 bg-indigo-600 text-white rounded-full font-medium text-sm">
-              View All
-            </button>
+            </div>
           </div>
         </div>
       </div>
