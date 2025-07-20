@@ -158,7 +158,7 @@ const Flavors = () => {
             </div>
           ))}
 
-          {/* Explore More Section */} 
+          {/* Explore More Section */}
           <div
             ref={el => addToPanelsRef(el, flavors.length + 1)}
             className="panel w-[50vw] h-[50vh] flex-shrink-0 flex items-center justify-center"
@@ -192,28 +192,30 @@ const Flavors = () => {
       {/* Mobile Version */}
       <div className="lg:hidden px-8 py-12">
         <h2 className="text-4xl text-center uppercase font-bold font-[antonio] text-gray-800 mb-6">
-          we've got <br/> <span className="text-[#523122] text-6xl">more flavours <br/> </span> than <br/> <span className=" text-black font-extrabold text-6xl">excuses</span>
+          we've got <br /> <span className="text-[#523122] text-6xl">more flavours <br /> </span> than <br /> <span className=" text-black font-extrabold text-6xl">excuses</span>
         </h2>
 
         <div className="space-y-15 pt-10">
           {flavors.map(flavor => (
-            <div key={flavor.id} className={`relative h-72 sm:h-80 md:h-[25rem] rounded-xl shadow ${flavor.bgColor}`}>
+            <div
+              key={flavor.id}
+              className={`relative h-72 sm:h-80 md:h-[25rem] rounded-xl shadow ${flavor.bgColor}`}
+            >
               {/* Background Image behind the can */}
-              <div className='relative flex items-center justify-center w-full h-full'>
-                <div className="w-full absolute bottom-0 left-[55%] -translate-x-1/2 z-0 background-image">
-                  <img
-                    src={WatermelonPieces}
-                    alt="Background"
-                    className="w-[20rem] object-contain"
-                  />
-                </div>
+              <div className="absolute inset-0 flex items-end justify-center z-0">
+                <img
+                  src={WatermelonPieces}
+                  alt="Background"
+                  className="w-[20rem] object-contain mb-2"
+                />
               </div>
+
               {/* Can Image */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 flavor-image">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10">
                 <img
                   src={flavor.image}
                   alt={flavor.alt}
-                  className="w-[160px] sm:w-[180px] md:w-[200px] object-contain mx-auto"
+                  className="w-[160px] sm:w-[180px] md:w-[200px] object-contain"
                 />
               </div>
 
@@ -229,8 +231,8 @@ const Flavors = () => {
                 <path d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
               <h3 className="text-2xl font-[antonio] text-white font-regular">
-              Explore More Flavors
-            </h3>
+                Explore More Flavors
+              </h3>
             </div>
           </div>
         </div>

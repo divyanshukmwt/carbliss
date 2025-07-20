@@ -3,6 +3,7 @@ import Lenis from "@studio-freight/lenis";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Flavours from "./components/Flavours";
+import ProductMacros from "./components/ProductMacros";
 
 const App = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const App = () => {
       <Nav />
       <Hero />
       <Flavours />
+      <ProductMacros/>
     </div>
   );
 };
