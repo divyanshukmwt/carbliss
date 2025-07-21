@@ -134,7 +134,7 @@ const Flavors = () => {
                 bgImg.style.transform = 'translate(0, 0)';
               }}
             >
-              <div className=' relative flex items-center overflow-hidden justify-center w-full h-full'>
+              <div className='relative flex items-center overflow-hidden justify-center w-full h-full'>
                 <div className="w-full h-full absolute bottom-3 left-[65%] -translate-x-1/2 z-0 background-image">
                   <img
                     src={WatermelonPieces}
