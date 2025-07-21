@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Flavours from "./components/Flavours";
 import ProductMacros from "./components/ProductMacros";
+import Intro from "./components/Intro";
 
 const App = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const App = () => {
       <Hero />
       <Flavours />
       <ProductMacros/>
+      <Intro />
     </div>
   );
 };

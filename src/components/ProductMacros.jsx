@@ -28,7 +28,7 @@ const ProductMacros = () => {
       { backgroundColor: "#ffffff" },
       {
         backgroundColor: "#A5DA6F",
-        duration: 0.5,
+        duration: 0.2,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: containerRef.current,
