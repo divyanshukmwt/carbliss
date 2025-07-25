@@ -13,7 +13,7 @@ import WatermelonPieces from "../../assets/Images/Watermelonpieces.png";
 import LemonPieces from "../../assets/Images/LemonPieces.png";
 import BlackCherryPieces from "../../assets/Images/BlackCherryPieces.png";
 import BlackRaspberryPieces from "../../assets/Images/BlackRaspberryPiecees.png";
-import MangoPieces from "../../assets/Images/Mangopieces.png";  // Used as background
+import MangoPieces from "../../assets/Images/MangoPieces.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
