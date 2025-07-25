@@ -34,32 +34,38 @@ const Intro = () => {
         <div ref={introRef} className="w-full h-screen transition-colors duration-500 flex items-center justify-center overflow-x-hidden">
             {/* Desktop View (lg and up) */}
             <div className="hidden lg:block text-center w-full h-full">
+
                 <div className="w-full h-full flex items-center justify-center">
                     {/* Left Text Section */}
-                    <div className='w-1/2 h-full flex items-center justify-center flex-col pl-10 gap-[5rem]'>
-                        <div className="w-full h-1/2 flex items-end justify-cente">
-                            <h1 className=" text-[2.2rem] leading-snug font-[antonio] uppercase font-bold text-black">
-                                In 2019, <span className="text-[2.6rem] font-extrabold">Adam & Amanda Kroener</span> turned <br />
-                                a <span className="text-[2.6rem] font-extrabold">“carb-less”</span> idea into <span className="text-[2.6rem] font-extrabold">Carbliss</span>
-                            </h1>
+                    <div className='w-1/2 h-full flex items-center justify-center flex-col pl-10'>
+                        <div className="w-full h-[20%] font-regular font-[antonio] flex items-center justify-center">
+                            <h1 className='text-[1.5rem]'>About us</h1>
                         </div>
-
-                        <div className='w-full h-1/2 flex justify-start items-center gap-2 flex-col'>
-                            <div className='w-fit h-fit font-[antonio] uppercase'>
-                                <h1 className='text-[1.5rem]'>Featured In</h1>
+                        <div className=' flex flex-col gap-[5rem] items-end justify-center'>
+                            <div className="w-full h-1/2 flex items-end justify-center">
+                                <h1 className=" text-[2.2rem] leading-snug font-[antonio] uppercase font-bold text-black">
+                                    In 2019, <span className="text-[2.6rem] font-extrabold">Adam & Amanda Kroener</span> turned <br />
+                                    a <span className="text-[2.6rem] font-extrabold">“carb-less”</span> idea into <span className="text-[2.6rem] font-extrabold">Carbliss</span>
+                                </h1>
                             </div>
-                            <div className='w-full h-fit flex items-center justify-evenly'>
-                                <div>
-                                    <img src={Enterpreneur} alt="" className='w-[120px]' />
+
+                            <div className='w-full h-1/2 flex justify-start items-center gap-2 flex-col'>
+                                <div className='w-fit h-fit font-[antonio] uppercase'>
+                                    <h1 className='text-[1.5rem]'>Featured In</h1>
                                 </div>
-                                <div>
-                                    <img src={UsaToday} alt="" className='w-[100px]' />
-                                </div>
-                                <div>
-                                    <img src={Inc5000} alt="" className='w-[75px]' />
-                                </div>
-                                <div>
-                                    <img src={Forbes} alt="" className='w-[95px]' />
+                                <div className='w-full h-fit flex items-center justify-evenly'>
+                                    <div>
+                                        <img src={Enterpreneur} alt="" className='w-[120px]' />
+                                    </div>
+                                    <div>
+                                        <img src={UsaToday} alt="" className='w-[100px]' />
+                                    </div>
+                                    <div>
+                                        <img src={Inc5000} alt="" className='w-[75px]' />
+                                    </div>
+                                    <div>
+                                        <img src={Forbes} alt="" className='w-[95px]' />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,30 +86,35 @@ const Intro = () => {
             {/* Tablet View (md only) */}
             <div className="hidden md:block lg:hidden text-center">
                 <div className="w-full h-full flex flex-col items-center gap-[2rem] justify-center">
-                    <div className='w-full h-1/2 flex items-center justify-center gap-[1.5rem] flex-col'>
-                        <div className="w-full  h-1/2 flex items-center justify-center">
-                            <h1 className=" text-[2.2rem] leading-snug font-[antonio] uppercase font-bold text-black">
-                                In 2019, <span className="text-[2.6rem] font-extrabold">Adam & Amanda Kroener</span> turned <br />
-                                a <span className="text-[2.6rem] font-extrabold">“carb-less”</span> idea into <span className="text-[2.6rem] font-extrabold">Carbliss</span>
-                            </h1>
-                        </div>
-
-                        <div className='w-full h-1/2 flex justify-start items-center gap-1 flex-col'>
-                            <div className='w-fit h-fit font-[antonio] uppercase'>
-                                <h1 className='text-[1.5rem]'>Featured In</h1>
+                    <div className="w-full h-[20%] font-regular font-[antonio] flex items-center justify-center">
+                        <h1 className='text-[1.5rem]'>About us</h1>
+                    </div>
+                    <div className='w-full h-full flex flex-col gap-[3rem] items-center justify-center'>
+                        <div className='w-full h-1/2 flex items-center justify-center gap-[1.5rem] flex-col'>
+                            <div className="w-full  h-1/2 flex items-center justify-center">
+                                <h1 className=" text-[2.2rem] leading-snug font-[antonio] uppercase font-bold text-black">
+                                    In 2019, <span className="text-[2.6rem] font-extrabold">Adam & Amanda Kroener</span> turned <br />
+                                    a <span className="text-[2.6rem] font-extrabold">“carb-less”</span> idea into <span className="text-[2.6rem] font-extrabold">Carbliss</span>
+                                </h1>
                             </div>
-                            <div className='w-full h-fit flex items-center justify-evenly'>
-                                <div>
-                                    <img src={Enterpreneur} alt="" className='w-[120px]' />
+
+                            <div className='w-full h-1/2 flex justify-start items-center gap-1 flex-col'>
+                                <div className='w-fit h-fit font-[antonio] uppercase'>
+                                    <h1 className='text-[1.5rem]'>Featured In</h1>
                                 </div>
-                                <div>
-                                    <img src={UsaToday} alt="" className='w-[100px]' />
-                                </div>
-                                <div>
-                                    <img src={Inc5000} alt="" className='w-[75px]' />
-                                </div>
-                                <div>
-                                    <img src={Forbes} alt="" className='w-[80px]' />
+                                <div className='w-full h-fit flex items-center justify-evenly'>
+                                    <div>
+                                        <img src={Enterpreneur} alt="" className='w-[120px]' />
+                                    </div>
+                                    <div>
+                                        <img src={UsaToday} alt="" className='w-[100px]' />
+                                    </div>
+                                    <div>
+                                        <img src={Inc5000} alt="" className='w-[75px]' />
+                                    </div>
+                                    <div>
+                                        <img src={Forbes} alt="" className='w-[80px]' />
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Flavours from "./components/Flavours";
 import ProductMacros from "./components/ProductMacros";
 import Intro from "./components/Intro";
+import About from "./components/About";
 
 const App = () => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const App = () => {
       <Flavours />
       <ProductMacros/>
       <Intro />
+      <About/>
     </div>
   );
 };
