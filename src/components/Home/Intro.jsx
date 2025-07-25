@@ -131,23 +131,22 @@ const Intro = () => {
 
                 </div>
             </div>
-
             {/* Mobile View (below md) */}
             <div className="block md:hidden text-center pt-[6rem]">
-                <div className="w-full h-full flex flex-col items-center gap-[4rem] justify-center">
-                    <div className='w-full h-1/2 flex items-center justify-center flex-col gap-[5rem]'>
-                        <div className="w-full h-1/2 flex items-end justify-center">
-                            <h1 className=" text-[1.5rem] leading-snug font-[antonio] uppercase font-bold text-black">
-                                In 2019, <span className="text-[1.7rem] font-extrabold">Adam & Amanda Kroener</span> turned <br />
-                                a <span className="text-[1.7rem] font-extrabold">“carb-less”</span> idea into <span className="text-[2.6rem] font-extrabold">Carbliss</span>
+                <div className="w-full h-full flex flex-col items-center gap-[2rem] justify-center">
+                    <div className='w-full flex flex-col items-center justify-center gap-[2rem]'>
+                        <div className="w-full flex items-start justify-center">
+                            <h1 className="text-[1.2rem] leading-snug font-[antonio] uppercase font-bold text-black">
+                                In 2019, <span className="text-[1.5rem] font-extrabold">Adam & Amanda Kroener</span> turned <br />
+                                a <span className="text-[1.5rem] font-extrabold">“carb-less”</span> idea into <span className="text-[2.6rem] font-extrabold">Carbliss</span>
                             </h1>
                         </div>
 
-                        <div className='w-[80%] h-1/2 flex justify-start items-center gap-2 flex-col'>
+                        <div className='w-[80%] flex justify-start items-center flex-col'>
                             <div className='w-fit h-fit font-[antonio] uppercase'>
-                                <h1 className='text-[1.5rem]'>Featured In</h1>
+                                <h1 className='text-[1.2rem]'>Featured In</h1>
                             </div>
-                            <div className='w-full h-fit flex items-center justify-evenly'>
+                            <div className='w-full flex items-center gap-[1rem] justify-evenly'>
                                 <div>
                                     <img src={Enterpreneur} alt="" className='w-[90px]' />
                                 </div>
@@ -165,16 +164,16 @@ const Intro = () => {
                     </div>
 
                     {/* Right Image Section */}
-                    <div className="w-full h-1/2 flex items-center justify-center relative">
+                    <div className="w-full flex items-center justify-center relative">
                         {/* Fake shadow box */}
-                        <div className="absolute w-[550px] h-[550px] bg-[#0000001a] rounded-full blur-2xl z-1"></div>
+                        <div className="absolute w-[450px] h-[450px] bg-[#0000001a] rounded-full blur-2xl z-1"></div>
 
                         {/* Founders Image */}
-                        <img src={Founders} alt="Founders" className="w-[550px] relative z-10" />
+                        <img src={Founders} alt="Founders" className="w-[350px] relative z-10" />
                     </div>
-
                 </div>
             </div>
+
         </div>
     );
 };

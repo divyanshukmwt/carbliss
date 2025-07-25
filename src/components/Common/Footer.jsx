@@ -53,18 +53,18 @@ const Footer = () => {
                         <div
                             className='h-22 w-22 rounded-full flex justify-center items-center text-2xl border border-white/80 bg-transparent p-5 hover:bg-white/20 duration-300'
                         >
-                            <span> <i class="ri-instagram-line"></i></span>
+                            <span> <i className="ri-instagram-line"></i></span>
                         </div>
                         <div
                             className='h-22 w-22 rounded-full flex justify-center items-center text-2xl border border-white/80 bg-transparent p-5 hover:bg-white/20 duration-300'
                         >
-                            <span><i class="ri-twitter-x-fill"></i></span>
+                            <span><i className="ri-twitter-x-fill"></i></span>
                         </div>
 
                         <div
                             className='h-22 w-22 rounded-full flex justify-center items-center text-2xl border border-white/80 bg-transparent p-5 hover:bg-white/20 duration-300'
                         >
-                            <span><i class="ri-linkedin-box-fill"></i></span>
+                            <span><i className="ri-linkedin-box-fill"></i></span>
                         </div>
                     </div>
                 </div>
