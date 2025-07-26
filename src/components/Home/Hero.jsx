@@ -161,7 +161,7 @@ const Hero = () => {
               <h2 className="text-[5rem] font-extrabold font-[antonio] uppercase leading-tight text-[#523122]">
                 No filler
               </h2>
-              <div className="absolute right-0 top-1/2 -translate-y-1/2" ref={pineappleFruitRef}>
+              <div className="absolute right-0 top-0 -translate-y-1/2" ref={pineappleFruitRef}>
                 <img src={PineappleFruit} alt="" className="w-[120px] -rotate-[23deg]" />
               </div>
             </div>

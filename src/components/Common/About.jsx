@@ -205,7 +205,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className="w-full h-fit">
+        <div className="w-full h-fit bg-[#fff2e7]">
             {/* 🔵 Desktop View */}
             <div className="hidden lg:flex flex-col overflow-x-hidden px-[2rem] py-[3rem]">
                 <div className="w-full h-screen px-[2rem]">
@@ -284,14 +284,14 @@ const About = () => {
                         ))}
                     </div>
                 </div>
-                <div className="slider-container w-full h-fit py-[4rem] bg-gradient-to-b from-[#fdfdfb] to-[#f2f2f2]">
+                <div className="slider-container w-full h-fit py-[4rem] bg-[#ffe5d0]">
                     <div className='w-full flex items-center py-[3rem] justify-center text-[4rem] font-[antonio] text-[#1a1a1a]'>
                         <h1>Sips, Smiles & Shoutouts</h1>
                     </div>
                     <Slider {...settings}>
                         {carblissReviews.map((item, index) => (
                             <div key={index} className='w-[100%] h-full px-4'>
-                                <div className="w-full h-[49vh] bg-white border border-gray-400 p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                                <div className="w-full h-[49vh] bg-[#fff4ec] border border-gray-400 p-6 rounded-xl shadow-lg flex flex-col justify-between">
                                     <h3 className="text-[1.5rem] w-[80%] font-medium italic font-[proxima] text-gray-800">
                                         "{item.review}"
                                     </h3>

@@ -3,6 +3,17 @@
 @import "slick-carousel/slick/slick-theme.css";
 @import 'remixicon/fonts/remixicon.css';
 
+/* Global style */
+body {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari */
+}
+
+
 @font-face {
   font-family: antonio;
   src: url(./assets/Fonts/Antonio-Regular.ttf);

@@ -11,7 +11,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="min-h-screen py-[4rem] w-full flex items-center overflow-hidden justify-center p-4">
+      <div className="min-h-screen bg-[#fff4ec] py-[4rem] w-full flex items-center overflow-hidden justify-center p-4">
         <div className="w-full max-w-7xl flex flex-col md:flex-row gap-10 md:gap-0">
           {/* Text Side */}
           <div className="w-full md:w-1/2 flex flex-col justify-center gap-6 p-4">

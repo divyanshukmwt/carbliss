@@ -33,9 +33,9 @@ const ProductDisplay = () => {
     <>
       <div
         ref={containerRef}
-        className="w-full min-h-screen bg-white px-6 py-16 relative overflow-hidden">
+        className="w-full min-h-screen bg-[#fff4ec] px-6 py-16 relative overflow-hidden">
         {/* 🔥 Marquee Section */}
-<div className="relative overflow-hidden w-full min-h-fit py-8 lg:py-[5rem] xl:py-[6rem] bg-white">
+        <div className="relative bg-[#fff4ec] overflow-hidden w-full min-h-fit py-8 lg:py-[5rem] xl:py-[6rem]">
 
           <div
             ref={marqueeRef}

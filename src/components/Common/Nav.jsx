@@ -108,10 +108,10 @@ const Nav = () => {
       {/* ✅ Slide Menu */}
       <div
         ref={menuRef}
-        className="fixed top-0 left-0 w-full h-screen bg-white z-40 flex flex-col lg:flex-row"
+        className="fixed top-0 left-0 w-full h-screen bg-[#fff2e7] z-40 flex flex-col lg:flex-row"
       >
         {/* Menu items */}
-        <div className="flex flex-col gap-5 items-center font-[antonio] justify-center text-[3rem] font-semibold w-full h-full lg:w-1/2">
+        <div className="flex flex-col text-[#1c0f05] gap-5 items-center font-[antonio] justify-center text-[3rem] font-semibold w-full h-full lg:w-1/2">
           {menuItems.map((item, index) => (
             <Link
               key={index}

@@ -129,7 +129,7 @@ const Flavors = () => {
 
 
   return (
-    <div className="overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+    <div className="overflow-hidden bg-[#fff4ec]">
       {/* Desktop Horizontal Scroll */}
       <div ref={containerRef} className="relative h-[100vh] w-screen hidden lg:block">
         <div ref={horizontalRef} className="absolute h-full flex items-center pl-30 gap-35">
